@@ -1,0 +1,40 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <h2 class="col-sm-6">Token</h2>
+    <h2 class="col-sm-6">Replacement</h2>
+  </div>
+  <div formArrayName="form_array">
+    <div *ngFor="let item of myForm.controls.form_array.controls; let i=index" class="panel panel-default">
+      <div class="panel-body" [formGroupName]="i">
+        <div class="form-group col-xs-4">
+          <input type="text" class="form-control" formControlName="token">
+        </div>
+        <div class="form-group col-xs-4">
+          <input type="text" class="form-control" formControlName="replacement" (focusout)="readData()">
+        </div>
+        <div class="form-group col-xs-4">
+          <button type="button" class="btn btn-danger" (click)="removeItem()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group col-xs-12">
+    <button type="button" class="btn btn-info pull-right" (click)="addNewItem()">Add</button>
+  </div>
+</form>
+<br>
+<hr>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <label for="input" class="col-sm-2">Input</label>
+        <textarea name="" id="input1" class="form-control" rows="3" required="required" [(ngModel)]="inText" (focusout)="load()"></textarea>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <label for="input" class="col-sm-2">Output</label>
+        <textarea name="" id="input1" class="form-control" rows="3" required="required" [(ngModel)]="outText"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
