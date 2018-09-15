@@ -1,4 +1,4 @@
-# Angular 2 Placeholder App
+# NG Placeholder
 
 Web app which replaces placeholders in a text.
 
